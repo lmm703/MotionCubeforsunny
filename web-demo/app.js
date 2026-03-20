@@ -107,7 +107,10 @@ async function connectBle() {
   setButtonState({ connecting: true, connected: false });
 
   bluetoothDevice = await navigator.bluetooth.requestDevice({
-    filters: [{ name: "MotionCube" }],
+    filters: [
+      { namePrefix: "MotionCube" },
+      { services: [BLE_SERVICE_UUID] },
+    ],
     optionalServices: [BLE_SERVICE_UUID],
   });
 
