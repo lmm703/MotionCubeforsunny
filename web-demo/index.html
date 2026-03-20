@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotionCube BLE Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-card">
+        <p class="eyebrow">MotionCube Demo</p>
+        <h1>Android BLE Cube Viewer</h1>
+        <p class="intro">
+          Connect your XIAO ESP32S3 over BLE and mirror its live roll and pitch
+          onto a browser-based cube.
+        </p>
+
+        <div class="status-banner" id="statusBanner" data-state="idle">
+          <p class="status-label">Connection State</p>
+          <p class="status-text" id="statusValue">Idle</p>
+          <p class="status-subtext" id="statusHint">
+            Tap connect and choose the MotionCube BLE device.
+          </p>
+        </div>
+
+        <div class="actions">
+          <button id="connectButton" type="button">Connect BLE</button>
+          <button id="disconnectButton" type="button" class="secondary-button" disabled>
+            Disconnect
+          </button>
+        </div>
+
+        <dl class="telemetry-grid">
+          <div class="telemetry-item">
+            <dt>Roll</dt>
+            <dd id="rollValue">0.00 deg</dd>
+          </div>
+          <div class="telemetry-item">
+            <dt>Pitch</dt>
+            <dd id="pitchValue">0.00 deg</dd>
+          </div>
+          <div class="telemetry-item">
+            <dt>Last Packet</dt>
+            <dd id="packetValue">Waiting</dd>
+          </div>
+        </dl>
+
+        <div class="help-card">
+          <h2>How To Use</h2>
+          <ol class="steps-list">
+            <li>Turn on Bluetooth on your phone.</li>
+            <li>Open this page in Chrome on Android over HTTPS.</li>
+            <li>Power the board and wait for <strong>MotionCube</strong> BLE.</li>
+            <li>Tap <strong>Connect BLE</strong> and choose the device.</li>
+            <li>Tilt the board and watch the cube follow the motion.</li>
+          </ol>
+        </div>
+
+        <div class="error-card" id="errorCard" hidden>
+          <p class="error-title">Need Attention</p>
+          <p class="error-text" id="errorValue">No issues.</p>
+        </div>
+
+        <p class="hint">
+          If Chrome says Bluetooth is unavailable, first check HTTPS, Bluetooth
+          permissions, and whether the board is still advertising.
+        </p>
+      </section>
+
+      <section class="viewer-card">
+        <div class="viewer-header">
+          <p class="viewer-label">Live Orientation</p>
+          <p class="viewer-caption">Pitch drives X rotation, roll drives Y rotation.</p>
+        </div>
+        <div class="scene">
+          <div class="cube" id="cube">
+            <div class="face front">Front</div>
+            <div class="face back">Back</div>
+            <div class="face right">Right</div>
+            <div class="face left">Left</div>
+            <div class="face top">Top</div>
+            <div class="face bottom">Bottom</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
