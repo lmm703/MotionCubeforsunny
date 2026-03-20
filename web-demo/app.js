@@ -11,7 +11,7 @@ const pitchValue = document.getElementById("pitchValue");
 const packetValue = document.getElementById("packetValue");
 const errorCard = document.getElementById("errorCard");
 const errorValue = document.getElementById("errorValue");
-const cube = document.getElementById("cube");
+const sculptureRig = document.getElementById("sculptureRig");
 
 let bluetoothDevice = null;
 let attitudeCharacteristic = null;
@@ -50,7 +50,10 @@ function updateCube(rollDeg, pitchDeg) {
   rollValue.textContent = `${rollDeg.toFixed(2)} deg`;
   pitchValue.textContent = `${pitchDeg.toFixed(2)} deg`;
   packetValue.textContent = new Date().toLocaleTimeString();
-  cube.style.transform = `rotateX(${pitchDeg}deg) rotateY(${rollDeg}deg)`;
+  const displayPitch = -14 + (pitchDeg * 0.78);
+  const displayRoll = 18 + (rollDeg * 0.72);
+  sculptureRig.style.transform =
+    `translateY(12px) rotateX(${displayPitch}deg) rotateY(${displayRoll}deg)`;
 }
 
 function parseAttitudePayload(text) {
@@ -143,7 +146,7 @@ async function connectBle() {
   setStatus(
     "streaming",
     "Streaming",
-    "Tilt the board and the cube should move with the incoming roll and pitch.",
+    "Tilt the board and the nightingale-and-rose sculpture should move with the incoming roll and pitch.",
   );
   setButtonState({ connecting: false, connected: true });
 }

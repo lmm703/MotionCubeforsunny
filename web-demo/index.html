@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MotionCube BLE Demo</title>
+    <title>MotionCube Nightingale And Rose</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="app-shell">
       <section class="hero-card">
         <p class="eyebrow">MotionCube Demo</p>
-        <h1>Android BLE Cube Viewer</h1>
+        <h1>Nightingale And Rose</h1>
         <p class="intro">
-          Connect your XIAO ESP32S3 over BLE and mirror its live roll and pitch
-          onto a browser-based cube.
+          Connect your XIAO ESP32S3 over BLE and let its live motion tilt a
+          moonlit sculpture inspired by <em>The Nightingale and the Rose</em>.
         </p>
 
         <div class="status-banner" id="statusBanner" data-state="idle">
@@ -53,7 +53,7 @@
             <li>Open this page in Chrome on Android over HTTPS.</li>
             <li>Power the board and wait for <strong>MotionCube</strong> BLE.</li>
             <li>Tap <strong>Connect BLE</strong> and choose the device.</li>
-            <li>Tilt the board and watch the cube follow the motion.</li>
+            <li>Tilt the board and watch the sculpture follow the motion.</li>
           </ol>
         </div>
 
@@ -70,17 +70,47 @@
 
       <section class="viewer-card">
         <div class="viewer-header">
-          <p class="viewer-label">Live Orientation</p>
-          <p class="viewer-caption">Pitch drives X rotation, roll drives Y rotation.</p>
+          <p class="viewer-label">Live Stage</p>
+          <p class="viewer-caption">A rose, a nightingale, and moonlight drifting with your orientation.</p>
         </div>
-        <div class="scene">
-          <div class="cube" id="cube">
-            <div class="face front">Front</div>
-            <div class="face back">Back</div>
-            <div class="face right">Right</div>
-            <div class="face left">Left</div>
-            <div class="face top">Top</div>
-            <div class="face bottom">Bottom</div>
+        <div class="scene night-scene">
+          <div class="moon-halo"></div>
+          <div class="moon-disc"></div>
+          <div class="mist mist-a"></div>
+          <div class="mist mist-b"></div>
+
+          <div class="sculpture-rig" id="sculptureRig">
+            <div class="starlight"></div>
+            <div class="rose-glow"></div>
+
+            <div class="bird" aria-hidden="true">
+              <div class="bird-body"></div>
+              <div class="bird-wing wing-back"></div>
+              <div class="bird-wing wing-front"></div>
+              <div class="bird-head"></div>
+              <div class="bird-beak"></div>
+              <div class="bird-tail"></div>
+            </div>
+
+            <div class="rose-bloom" aria-hidden="true">
+              <div class="petal petal-center"></div>
+              <div class="petal petal-upper-left"></div>
+              <div class="petal petal-upper-right"></div>
+              <div class="petal petal-mid-left"></div>
+              <div class="petal petal-mid-right"></div>
+              <div class="petal petal-lower-left"></div>
+              <div class="petal petal-lower-right"></div>
+              <div class="petal petal-rear"></div>
+            </div>
+
+            <div class="stem"></div>
+            <div class="thorn thorn-a"></div>
+            <div class="thorn thorn-b"></div>
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+            <div class="pedestal-glow"></div>
+            <div class="pedestal"></div>
+            <div class="shadow-pool"></div>
           </div>
         </div>
       </section>
